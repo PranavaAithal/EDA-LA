@@ -6,7 +6,9 @@ output:
 
 ------------------------------------------------------------------------
 
-title: "Netflix Titles" 
+title: "Netflix Titles"
+github 1:
+github 2: https://github.com/PranavaAithal/EDA-LA
 #NT 
 #Part 1
 #In this part, we are loading the necessary libraries (readr, dplyr, ggplot2, e1071, and moments) to work with the data. Then, we are reading a CSV file named "netflix_titles.csv" from the specified path and assigning it to the dataframe nt. Finally, we are viewing the dataframe nt using the View() function.
