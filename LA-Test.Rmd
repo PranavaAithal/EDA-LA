@@ -1,0 +1,84 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+EDA LA - 1 "Netflix Titles" Group 15: B Sai Narsa Reddy, Pranava Aithal K S
+------------------------------------------------------------------------
+Github : https://github.com/PranavaAithal/EDA-LA
+#NT 
+#Part 1
+#In this part, we are loading the necessary libraries (readr, dplyr, ggplot2, e1071, and moments) to work with the data. Then, we are reading a CSV file named "netflix_titles.csv" from the specified path and assigning it to the dataframe nt. Finally, we are viewing the dataframe nt using the View() function.
+```{r}
+library(readr)
+library(dplyr)
+library(ggplot2)
+library(e1071)
+library(moments)
+nt <- read_csv("C:/Users/prana/OneDrive/Desktop/5th Sem/7th SEM/EDA/netflix_titles.csv")
+View(nt)
+```
+#Part 2
+#In this part, we are performing data type conversions on the release_year column of the nt dataframe. First, we convert it to numeric using as.numeric(), then we subset the first 400 values using [1:400] and assign it to the variable neww. Next, we convert neww to integer using as.integer(), subset the first 400 values, and assign it to neww1. Then, we convert neww1 to character using as.character(), subset the first 400 values, and assign it to neww2. Finally, we check the classes of the nt dataframe, nt$title, and nt$release_year.
+```{r}
+neww = as.numeric(nt$release_year)
+neww[1:400]
+neww1 = as.integer(neww)
+neww1[1:400]
+neww2 = as.character(neww1)
+neww2[1:400]
+class(nt)
+class(nt$title)
+class(nt$release_year)
+```
+#Part 3
+#In this part, you are performing various operations on the nt dataframe. colnames(nt) retrieves and displays the column names of the nt dataframe. head(nt) displays the first few rows of the nt dataframe. tail(nt) displays the last few rows of the nt dataframe. summary(nt) provides summary statistics for each column in the nt dataframe. sd(nt$release_year) calculates the standard deviation of the release_year column. var(nt$release_year) calculates the variance of the release_year column. range(nt$release_year) gives the minimum and maximum values of the release_year column. quantile(nt$release_year, 1/2) calculates the median of the release_year column. skewness(nt$release_year) calculates the skewness of the release_year column. kurtosis(nt$release_year) calculates the kurtosis of the release_year column. rev(nt$release_year) reverses the order of the release_year column. cat command prints the number of columns in the release_year column.
+```{r}
+colnames(nt)
+head(nt)
+tail(nt)
+summary(nt)
+sd(nt$release_year)
+var(nt$release_year)
+range(nt$release_year)
+quantile(nt$release_year, 1/2)
+skewness(nt$release_year)
+kurtosis(nt$release_year)
+rev(nt$release_year)
+cat("\nColumn:",ncol(nt$release_year))
+```
+#Part 4 We modified a column Hero and added abc, def, ghi, ijk
+#In this part, you are performing various operations on the nt dataframe. nrow(nt) returns the number of rows in the nt dataframe. ncol(nt) returns the number of columns in the nt dataframe. str(nt) provides information about the structure of the nt dataframe. grep("ab", nt$hero) searches for the pattern "ab" in the hero column and returns the indices where it is found. grepl("hi", nt[3,]) checks if the pattern "hi" is present in the third row of the dataframe nt and returns a logical vector. toupper(nt[4,13]) converts the value in the fourth row and thirteenth column to uppercase. tolower(nt[4,13]) converts the value in the fourth row and thirteenth column to lowercase. substring(nt[5,12], 0, 30) extracts a substring from the value in the fifth row and twelfth column, starting from position 0 and ending at position 30.
+```{r}
+nrow(nt)
+ncol(nt)
+str(nt)
+grep("ab",nt$hero)
+grepl("hi",nt[3,])
+toupper(nt[4,13])
+tolower(nt[4,13])
+substring(nt[5,12],0,30)
+```
+#Part 5
+#In this part, you are performing various operations on the nt dataframe. plot(nt[1:400,8]) creates a plot of the values in the eighth column of the first 400 rows. boxplot(nt[1:400,8]) creates a boxplot of the values in the eighth column of the first 400 rows. table(nt[1:400,8][nt[1:400,8] > 4000]) counts the occurrences of values greater than 4000 in the eighth column of the first 400 rows. scale(nt[1:400,8]) standardizes the values in the eighth column of the first 400 rows. cummax(nt$release_year) calculates the cumulative maximum of the release_year column. cumsum(nt$release_year) calculates the cumulative sum of the release_year column.
+```{r}
+plot(nt[1:400,8])
+boxplot(nt[1:400,8])
+table(nt[1:400,8][nt[1:400,8] > 4000])
+scale(nt[1:400,8])
+cummax(nt$release_year)
+cumsum(nt$release_year)
+```
+#Part 6
+#In this part, you are performing various operations on the nt dataframe. mean(nt$release_year, na.rm = TRUE) calculates the mean of the release_year column, ignoring missing values. rev(nt[1:10,3]) reverses the order of the values in the third column of the first 10 rows. cat(nt$show_id, sep = ",") concatenates the values in the show_id column with a comma separator and prints the result. nchar(nt) calculates the number of characters in each element of the dataframe nt. table(nt[1:400,2]) creates a frequency table for the values in the second column of the first 400 rows. nt$show_id[nt$release_year == 2021] retrieves the values in the show_id column where the release_year is equal to 2021. sort(nt$release_year) sorts the release_year column in ascending order. order(nt$title) returns the indices that would sort the title column in ascending order. rank(nt$director) calculates the rank of each value in the director column.
+```{r}
+mean(nt$release_year,na.rm = TRUE)
+rev(nt[1:10,3])
+cat(nt$show_id, sep = ",")
+nchar(nt)
+table(nt[1:400,2])
+nt$show_id[nt$release_year == 2021]
+sort(nt$release_year)
+order(nt$title)
+rank(nt$director)
+```
